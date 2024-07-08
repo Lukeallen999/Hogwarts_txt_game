@@ -20,32 +20,32 @@ turn = 1
 
 ### Location functions
 location_dict = {
-'[0,0]': 'Hagrids hut',
-'[0,1]': 'Dorm',
-'[0,2]': 'The restricted section',
-'[0,3]': 'The Dungeons',
-'[0,4]':'The room of requirements',
-'[1,0]':'Womping Willow',
-'[1,1]':'Common room',
-'[1,2]':'Library',
-'[1,3]':'Potions classroom',
-'[1,4]':'Defence against the dark arts',
-'[2,0]':'The Court yard',
-'[2,1]':'Castle entrance',
-'[2,2]':'The Great Hall',
-'[2,3]':'Map Chamber',
-'[2,4]':'Head Masters office',
-'[3,0]':'The forbidden forrest',
-'[3,1]':'Hospital wing',
-'[3,2]':'Trophy room',
-'[3,3]':'Astronomy Tower',
-'[3,4]':'Charms classroom',
-'[4,0]':'Deep in the forbidden forest',
-'[4,1]':'Quidditch pitch',
-'[4,2]':"Moaning Myrtle's bathroom",
-'[4,3]':'The stables',
-'[4,4]':'The boat house'}
-
+'[0,0]' : 'Hagrids hut',
+'[0,1]' : 'Dorm',
+'[0,2]' : 'The restricted section',
+'[0,3]' : 'The Dungeons',
+'[0,4]' : 'The room of requirements',
+'[1,0]' : 'Womping Willow',
+'[1,1]' : 'Common room',
+'[1,2]' : 'Library',
+'[1,3]' : 'Potions classroom',
+'[1,4]' : 'Defence against the dark arts',
+'[2,0]' : 'The Court yard',
+'[2,1]' : 'Castle entrance',
+'[2,2]' : 'The Great Hall',
+'[2,3]' : 'Map Chamber',
+'[2,4]' : 'Head Masters office',
+'[3,0]' : 'The forbidden forrest',
+'[3,1]' : 'Hospital wing',
+'[3,2]' : 'Trophy room',
+'[3,3]' : 'Astronomy Tower',
+'[3,4]' : 'Charms classroom',
+'[4,0]' : 'Deep in the forbidden forest',
+'[4,1]' : 'Quidditch pitch',
+'[4,2]' : "Moaning Myrtle's bathroom",
+'[4,3]' : 'The stables',
+'[4,4]' : 'The boat house'}
+ 
 
 def run_location_function(coords):
     location_coords = str(coords).replace(" ","")
@@ -68,7 +68,35 @@ def print_clean_txt(txt: str) -> str:
 
 
 def Hagrids_hut():
-    print_clean_txt('''path''')
+    print_clean_txt('''
+                    The pathway leading to Hagrid's hut was a journey in itself,
+                    a testament to the half-giant's unique blend of practicality
+                    and charm. It began with a winding, stony track that snaked
+                    through the shadowed heart of the Hogwarts woodland, dappled
+                    sunlight barely penetrating the thick canopy overhead. The
+                    air hung heavy with the scent of damp earth and decaying
+                    leaves, punctuated by the occasional pungent whiff of
+                    something distinctly Hagrid-esque. Clumps of vibrant
+                    mushrooms, their caps resembling tiny umbrellas, punctuated
+                    the path, a touch of whimsical magic in the otherwise
+                    austere setting. As the path deepened into the woods, the
+                    air grew cooler, and the trees, gnarled and ancient, seemed
+                    to press in closer, whispering secrets in the rustling
+                    leaves. The gnarled roots of ancient oaks twisted across the
+                    path, creating a natural obstacle course, forcing visitors
+                    to clamber over them or carefully step around. Finally,
+                    emerging from the dense undergrowth, the hut came into view,
+                    a cozy, ramshackle abode built from rough-hewn logs and
+                    topped with a thatched roof that seemed to sag under the
+                    weight of years. A plume of smoke curled from the chimney,
+                    promising warmth and hospitality within, welcoming any weary
+                    traveller who dared to venture down the path.
+
+                    Done
+
+
+                    done2
+                    ''')
     print('')
     print_clean_txt('''Intro''')
     print('')
