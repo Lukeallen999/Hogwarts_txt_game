@@ -45,14 +45,14 @@ print(f'Hello {character_name}, {character_gender} of {character_house} house')
 
 # Playing section
 while user_input != 'EXIT':
-    print(F'\n-------------- Turn: {turn} ----------------')
+    print(f'\n-------------- Turn: {turn} ----------------')
     print(f'Coordinates: {coords}')	
 
 
     location = loc.location_dict[str(coords).replace(" ","")]
+    print(f'You are in: {location}')
     map.update_map(coords,location)
     loc.run_location_function(coords)
-    
     available_moves = movement.available_movement(coords)
 
     print('\nMove options:')
