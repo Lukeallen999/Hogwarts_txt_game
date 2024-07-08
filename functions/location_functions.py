@@ -56,7 +56,7 @@ def run_location_function(coords):
 
 def print_clean_txt(txt: str) -> str:
     '''
-    
+    Helps increase readability of text in the terminal window 
     
     '''
     txt = txt.replace("  ","")
@@ -114,26 +114,42 @@ def Hagrids_hut():
                     sabotage, aimed at Hagrid and the creatures he cared for.
                     ''')
     print('')
-    print_clean_txt('''
-                    A whimper, soft and pathetic, coming from the wreckage of
-                    Hagrid's once-cozy home. The place was in chaos - furniture
-                    overturned, shelves emptied, everything coated in a layer of
-                    dust and broken glass. The scent of burnt wood lingered, a
-                    bitter reminder of the fire that had ravaged the place. You
-                    cautiously step over a broken table, your heart pounding in
-                    my chest. The whimper came again, closer this time, and you
-                    freeze. It was from the rubble of the fireplace, where a
-                    pile of charred logs lay smouldering.
-                    ''')
-
     if puppy_name == False:
-        print_clean_txt('''Finding puppy''')
+        print_clean_txt('''
+                        A whimper, soft and pathetic, coming from the wreckage
+                        of Hagrid's once-cozy home. The place was in chaos -
+                        furniture overturned, shelves emptied, everything coated
+                        in a layer of dust and broken glass. The scent of burnt
+                        wood lingered, a bitter reminder of the fire that had
+                        ravaged the place. You cautiously step over a broken
+                        table, your heart pounding in my chest. The whimper came
+                        again, closer this time, and you freeze. It was from the
+                        rubble of the fireplace, where a pile of charred logs
+                        lay smouldering.
+                        ''')
         print('')
         choice_input = input('Do you investigate? (Y/N):').upper()
         if choice_input == 'Y':
-            print('You find a puppy')
-            puppy_name = input('Puppy name:' )
-            print(f'Good {puppy_name} you say as you pet him')
+            print_clean_txt('''
+                            As you move closer, you see a small, furry creature
+                            huddled beneath the debris, its whimpers growing
+                            louder, punctuated by panicked gasps. It was a
+                            small, brown dog, its fur matted and its eyes wide
+                            with fear. It had clearly been injured, a cut on its
+                            leg oozing blood. I knelt down, gently coaxing it
+                            out from under the logs, and as I cradled it in my
+                            arms, I realized this little creature was the sole
+                            survivor of this attack, the only one who could tell
+                            the story of what had happened here. A story that, I
+                            knew, would be filled with fear, danger, and
+                            perhaps, the terrible truth about the attack on
+                            Hagrid's hut.
+                            ''')
+            puppy_name = input('You decide to call the puppy:' )
+            print(f'Good {puppy_name} you say as you pet you new found friend')
+
+
+
 def Dorm():
         print("You are in: Dorm")
 def The_restricted_section():
