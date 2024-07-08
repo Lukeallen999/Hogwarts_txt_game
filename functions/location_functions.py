@@ -1,4 +1,5 @@
 import time
+import textwrap
 
 # Characters
 head_master = 'Professor Weasly'
@@ -21,8 +22,8 @@ turn = 1
 location_dict = {
 '[0,0]': 'Hagrids hut',
 '[0,1]': 'Dorm',
-'[0,2]':'The restricted section',
-'[0,3]':'The Dungeons',
+'[0,2]': 'The restricted section',
+'[0,3]': 'The Dungeons',
 '[0,4]':'The room of requirements',
 '[1,0]':'Womping Willow',
 '[1,1]':'Common room',
@@ -53,38 +54,31 @@ def run_location_function(coords):
     location_coords = location_coords.replace("'","")
     eval(location_coords)    
 
+def print_clean_txt(txt: str) -> str:
+    '''
+    
+    
+    '''
+    txt = txt.replace("  ","")
+    txt = txt[1:]
+    txt = textwrap.fill(txt, 100)
+
+    print(txt)
+
+
 
 def Hagrids_hut():
-    print("Location: Hagrids hut")
-    print("You walk down a little cobblestone path")		
-    print('You have arrived at Hagrids shack')
-    print('Looking around you, you see the shack has been ransacked')
-
+    print_clean_txt('''path''')
+    print('')
+    print_clean_txt('''Intro''')
+    print('')
+    global puppy_name
     if puppy_name == False:
-        print('You hear wimpering coming from underneath the upturned table')
-        print('Do you investigate? (Y/N)')
-        choice_input = input()
+        print_clean_txt('''Finding puppy''')
+        print('')
+        choice_input = input('Do you investigate? (Y/N):').upper()
         if choice_input == 'Y':
-            print('\nAs you lift the table, a creature flys at you knocking you down....')
-            time.sleep(1)
-            print(f"""
-                  In a panic you flail your arms about hoping to defender yourself from the attacker but it doesn't work. 
-                  Calming yourself you remember the advice {defence_teacher} gave you in your defence against the dark arts class:\n
-                  step 1: Identify your target \n
-                  step 2: Observe your surroundings \n
-                  step 3: Choose your spell \n
-                  Step 4: neutralise the target \n
-
-                  Whilst focusing on how you're going to save yourself you feel tongues licking your face, 
-                  you open your eyes to see a 3 headed puppy, the puppy is friendly and is very happy to see you. 
-                  As you search around Hagrid's shack He follows you wherever you go limping as he walks; 
-                  the puppy must be hurt, maybe something in the castle could help. 
-                  Deciding you've got a new friend you choose a name for the puppy, what are you going to call him? ")
-
-
-                  """)
-            print()
-            print("You feel 3 tounges licking your face, you open your eyes to see a 3 headed puppy, the puppy is friendly and is very happy to see you. As you search around hagrid's shack He follows you where ever you go.Deciding you've got a new friend you choose a name for the puppy, what are you going to call him? ")
+            print('You find a puppy')
             puppy_name = input('Puppy name:' )
             print(f'Good {puppy_name} you say as you pet him')
 def Dorm():
@@ -97,6 +91,8 @@ def The_room_of_requirements():
         print("You are in: The room of requirements")
 def Womping_Willow():
         print("You are in: Womping Willow")
+        if puppy_name != False:
+               print(f'You have a puppy called {puppy_name}')
 def Common_room():
         print("You are in: Common room")
 def Library():
