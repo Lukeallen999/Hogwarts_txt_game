@@ -68,6 +68,8 @@ def print_clean_txt(txt: str) -> str:
 
 
 def Hagrids_hut():
+    global puppy_name     
+
     print_clean_txt('''
                     The pathway leading to Hagrid's hut was a journey in itself,
                     a testament to the half-giant's unique blend of practicality
@@ -91,16 +93,39 @@ def Hagrids_hut():
                     weight of years. A plume of smoke curled from the chimney,
                     promising warmth and hospitality within, welcoming any weary
                     traveller who dared to venture down the path.
-
-                    Done
-
-
-                    done2
                     ''')
     print('')
-    print_clean_txt('''Intro''')
+    print_clean_txt('''
+                    The door creaked open, revealing a scene of utter chaos. The
+                    lingering scent of something dark and sinister. You
+                    frantically search the room, your hands trembling, a knot of
+                    fear twisting in your gut. Where were his creatures? The
+                    giant spider, Aragog, had vanished from his terrarium,
+                    leaving behind only a single, silken thread,
+                    stretching towards the dark woods beyond. His beloved
+                    Blast-Ended Skrewt, usually kept in a secure cage, had left
+                    a trail of destruction in its wake, its sharp claws tearing
+                    at the wood of the floorboards. A sense of dread washes over
+                    you, a gnawing fear that something terrible had happened,
+                    something that threatened not only Hagrid's home, but the
+                    very safety of Hogwarts. You know, with a certainty that
+                    chills you to the bone, that this wasn't just a simple
+                    break-in, this was something far darker, a deliberate act of
+                    sabotage, aimed at Hagrid and the creatures he cared for.
+                    ''')
     print('')
-    global puppy_name
+    print_clean_txt('''
+                    A whimper, soft and pathetic, coming from the wreckage of
+                    Hagrid's once-cozy home. The place was in chaos - furniture
+                    overturned, shelves emptied, everything coated in a layer of
+                    dust and broken glass. The scent of burnt wood lingered, a
+                    bitter reminder of the fire that had ravaged the place. You
+                    cautiously step over a broken table, your heart pounding in
+                    my chest. The whimper came again, closer this time, and you
+                    freeze. It was from the rubble of the fireplace, where a
+                    pile of charred logs lay smouldering.
+                    ''')
+
     if puppy_name == False:
         print_clean_txt('''Finding puppy''')
         print('')
