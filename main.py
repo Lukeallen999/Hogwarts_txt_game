@@ -5,13 +5,15 @@ import functions.location_functions as loc
 import functions.character_builder_functions as character
 import functions.movement_functions as movement
 import functions.map_functions as map
+
 '-----------------------------------------------------------------'
 ### Variables
 key = False
 user_input = False
-coords = [2,0]
-puppy_name = False
+coords = [0,2]
+#puppy_name = False
 turn = 1
+#from functions.location_functions import puppy_name
 '''
 character_name = input('Please enter your name: ')
 character_gender = character.character_gender()
@@ -51,16 +53,24 @@ while user_input != 'EXIT':
 
     location = loc.location_dict[str(coords).replace(" ","")]
     print(f'You are in: {location}')
+    next_turn = False
     map.update_map(coords,location)
     loc.run_location_function(coords)
     available_moves = movement.available_movement(coords)
+
+    print(f' next turn = {loc.next_turn}')
+    print(f'puppy name = {loc.puppy_name}')
+    if loc.next_turn == True:
+        print('Loop worked')
+        continue
 
     print('\nMove options:')
     for direction in available_moves:
         movement.move_options(direction)
     
-
+    
     # Movement
+
     user_input = input('Move:').upper()
     coords = movement.movement(user_input,available_moves )
     turn +=1

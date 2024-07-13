@@ -1,6 +1,7 @@
 import time
+import random
 import textwrap
-
+import functions.movement_functions as movement
 # Characters
 head_master = 'Professor Weasly'
 defence_teacher = 'Professor Longbottom'
@@ -16,6 +17,7 @@ key = False
 user_input = False
 coords = [2,0]
 puppy_name = False
+next_turn = False
 turn = 1
 
 ### Location functions
@@ -46,7 +48,6 @@ location_dict = {
 '[4,3]' : 'The stables',
 '[4,4]' : 'The boat house'}
  
-
 def run_location_function(coords):
     location_coords = str(coords).replace(" ","")
     location_coords = location_coords.replace("'","")
@@ -65,11 +66,9 @@ def print_clean_txt(txt: str) -> str:
 
     print(txt)
 
-
-
 def Hagrids_hut():
-    global puppy_name     
-
+    global puppy_name   
+    puppy_name = False
     print_clean_txt('''
                     The pathway leading to Hagrid's hut was a journey in itself,
                     a testament to the half-giant's unique blend of practicality
@@ -128,7 +127,7 @@ def Hagrids_hut():
                         lay smouldering.
                         ''')
         print('')
-        choice_input = input('Do you investigate? (Y/N):').upper()
+        choice_input = input('Do you investigate? (Y/N): ').upper()
         if choice_input == 'Y':
             print_clean_txt('''
                             As you move closer, you see a small, furry creature
@@ -151,9 +150,43 @@ def Hagrids_hut():
 
 
 def Dorm():
-        print("You are in: Dorm")
+    print("You are in: Dorm")
+
+    print('You see your bed')
+    choice_input = input('Do you check your old bed? (Y/N): ').upper()
+    if choice_input == 'Y':
+        print('See hidden door')
+        choice_input = input('Do you open the hidden door? (Y/N)').upper()
+        if choice_input == 'Y':
+            print('Find hidden passage')
+            movement.available_movement_dict.update({'[0,1]':'N,E',
+                                                     '[0,2]':'N,E,S'})
+
 def The_restricted_section():
-        print("You are in: The restricted section")
+    global next_turn
+    global coords
+    print("You are in: The restricted section")
+
+    print('see portkey')
+        
+    user_input = input('Do you use the portkey? \nOdds: \nLeave Hogwarts: 10% \nDeath: 20% \nTeleport to another room in Hogwarts: 70% \n(Y/N): ').upper()
+    if user_input == 'Y':
+           chance = random.randint(1,10)
+           chance = 4
+           if chance < 3:
+                  print("You're dead")
+                  exit()
+           if  2 < chance < 10:
+                  print('You teleported')
+                  movement.coords = movement.teleport(random.randint(0,4),random.randint(0,4))
+                  next_turn = True
+                  print(f'new coords are {coords}')
+                  print(f'next term func = {next_turn}')
+           if chance > 9:
+                  print('yes')
+                  
+           
+    
 def The_Dungeons():
         print("You are in: The Dungeons")
 def The_room_of_requirements():
