@@ -17,6 +17,7 @@ key = False
 user_input = False
 coords = [2,0]
 puppy_name = False
+next_turn = False
 turn = 1
 
 ### Location functions
@@ -66,8 +67,8 @@ def print_clean_txt(txt: str) -> str:
     print(txt)
 
 def Hagrids_hut():
-    global puppy_name     
-
+    global puppy_name   
+    puppy_name = False
     print_clean_txt('''
                     The pathway leading to Hagrid's hut was a journey in itself,
                     a testament to the half-giant's unique blend of practicality
@@ -162,6 +163,8 @@ def Dorm():
                                                      '[0,2]':'N,E,S'})
 
 def The_restricted_section():
+    global next_turn
+    global coords
     print("You are in: The restricted section")
 
     print('see portkey')
@@ -169,14 +172,16 @@ def The_restricted_section():
     user_input = input('Do you use the portkey? \nOdds: \nLeave Hogwarts: 10% \nDeath: 20% \nTeleport to another room in Hogwarts: 70% \n(Y/N): ').upper()
     if user_input == 'Y':
            chance = random.randint(1,10)
+           chance = 4
            if chance < 3:
                   print("You're dead")
                   exit()
            if  2 < chance < 10:
                   print('You teleported')
-                  coords = movement.teleport(random.randint(0,4),random.randint(0,4))
-                  continue
-           #https://stackoverflow.com/questions/73296971/is-it-possible-to-a-continue-statement-inside-a-function-that-gets-called-with
+                  movement.coords = movement.teleport(random.randint(0,4),random.randint(0,4))
+                  next_turn = True
+                  print(f'new coords are {coords}')
+                  print(f'next term func = {next_turn}')
            if chance > 9:
                   print('yes')
                   

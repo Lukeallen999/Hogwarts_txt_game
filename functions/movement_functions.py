@@ -34,6 +34,7 @@ def move_options(direction):
 
 # Teleport
 def teleport(x_coord, y_coord):
+	global coords
 	coords = [x_coord,y_coord]
 	return coords		
 '-----------------------------------------------------------------'
