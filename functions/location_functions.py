@@ -188,7 +188,7 @@ def The_restricted_section():
 def The_Dungeons():
         print("You are in: The Dungeons")
         print("you see dead family")
-        
+
         if 'Health potion' in inventory:
                inventory.remove("Health potion")
 
@@ -205,6 +205,10 @@ def The_Dungeons():
 
 def The_room_of_requirements():
         print("You are in: The room of requirements")
+        print('You find a key')
+        
+        inventory.append('Key')
+
 def Womping_Willow():
         print("You are in: Womping Willow")
         if puppy_name != False:
