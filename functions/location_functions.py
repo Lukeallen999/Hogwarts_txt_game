@@ -19,6 +19,8 @@ coords = [2,0]
 puppy_name = False
 next_turn = False
 turn = 1
+inventory = []
+companions = [] 
 
 ### Location functions
 location_dict = {
@@ -150,8 +152,6 @@ def Hagrids_hut():
 
 
 def Dorm():
-    print("You are in: Dorm")
-
     print('You see your bed')
     choice_input = input('Do you check your old bed? (Y/N): ').upper()
     if choice_input == 'Y':
@@ -165,7 +165,6 @@ def Dorm():
 def The_restricted_section():
     global next_turn
     global coords
-    print("You are in: The restricted section")
 
     print('see portkey')
         
@@ -188,6 +187,22 @@ def The_restricted_section():
     
 def The_Dungeons():
         print("You are in: The Dungeons")
+        print("you see dead family")
+        
+        if 'Health potion' in inventory:
+               inventory.remove("Health potion")
+
+               user_input = input('do you bring back your brother(1) or dad(2)')
+               if user_input == 1:
+                      print('You bring back your brother')
+                      
+               if user_input == 2:
+                      print('You bring back your dad')
+
+
+
+
+
 def The_room_of_requirements():
         print("You are in: The room of requirements")
 def Womping_Willow():
