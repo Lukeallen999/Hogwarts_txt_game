@@ -179,6 +179,7 @@ def The_restricted_section():
            if  2 < chance < 10:
                   print('You teleported')
                   movement.coords = movement.teleport(random.randint(0,4),random.randint(0,4))
+                  coords = movement.coords
                   next_turn = True
                   print(f'new coords are {coords}')
                   print(f'next term func = {next_turn}')
