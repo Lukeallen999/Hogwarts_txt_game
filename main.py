@@ -104,13 +104,10 @@ while user_input != 'EXIT':
     loc.run_location_function(coords)
     available_moves = movement.available_movement(coords)
 
-    print(f' next turn = {loc.next_turn}')
-    print(f'puppy name = {loc.puppy_name}')
+    # This loop is used when the user teleports
     if loc.next_turn == True:
         loc.next_turn = False
-        print('Loop worked')
         coords = loc.coords
-        print(f'Coords = {coords}')
         time.sleep(1)
         continue
 
