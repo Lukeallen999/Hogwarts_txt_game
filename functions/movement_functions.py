@@ -1,6 +1,6 @@
   ### Movement
 ### Functions
-import location_functions as loc
+import functions.location_functions as loc
 ## Movement 
 coords = [2,0]
 move_dict = {

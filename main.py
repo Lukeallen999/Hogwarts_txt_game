@@ -25,17 +25,62 @@ character_name = 'Luke'
 character_gender = 'Wizard'
 character_house = 'Dragon'
 
+class person:
+    def __init__(self,name,profession,age,level) -> None:
+        self.name = name
+        self.profession = profession
+        self.age = age
+        self.level = level
 
 # Characters
-head_master = 'Professor Weasly'
-defence_teacher = 'Professor Longbottom'
-quidditch_teacher = 'Professor Flume'
-potions_teacher = 'Professor Walker'
-charms_teacher = 'Professor Stone'
-brother = 'Peter'
-dad = 'Steven'
-villain = 'Casey Brown'
-grounds_keeper = 'Hagrid'
+headmaster          = person(name = 'Professor Weasly',
+                             profession = 'Headmaster',
+                             age = 103,
+                             level = 100)
+
+defence_teacher     = person(name = 'Professor Longbottom',
+                             profession = 'Defence teacher',
+                             age = 35,
+                             level = 20)
+
+quidditch_teacher   = person(name = 'Professor Flume',
+                             profession = 'Quidditch teacher',
+                             age = 25,
+                             level = 5)
+
+potions_teacher     = person(name = 'Professor Walker',
+                             profession = 'Potions teacher',
+                             age = 88,
+                             level = 61)
+
+charms_teacher      = person(name = 'Professor Stone',
+                             profession = 'Charms teacher',
+                             age = 55,
+                             level = 20)
+
+brother             = person(name = 'Peter',
+                             profession = 'Brother',
+                             age = 18,
+                             level = 1)
+
+dad                 = person(name = 'Steven',
+                             profession = 'Dad',
+                             age = 63,
+                             level = 1)
+
+villain             = person(name = 'Casey Brown',
+                             profession = 'Villain',
+                             age = 19,
+                             level = 7)
+
+grounds_keeper      = person(name = 'Hagrid',
+                             profession = 'Grounds keeper',
+                             age = 154,
+                             level = 3)
+
+
+
+
 '-----------------------------------------------------------------'
 
 
