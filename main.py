@@ -1,6 +1,7 @@
 ### Modules
 import datetime
 import random
+import time
 import functions.location_functions as loc
 import functions.character_builder_functions as character
 import functions.movement_functions as movement
@@ -93,9 +94,9 @@ print(f'Hello {character_name}, {character_gender} of {character_house} house')
 # Playing section
 while user_input != 'EXIT':
     print(f'\n-------------- Turn: {turn} ----------------')
+    turn +=1
     print(f'Coordinates: {coords}')	
-
-
+    
     location = loc.location_dict[str(coords).replace(" ","")]
     print(f'You are in: {location}')
     next_turn = False
@@ -103,10 +104,11 @@ while user_input != 'EXIT':
     loc.run_location_function(coords)
     available_moves = movement.available_movement(coords)
 
-    print(f' next turn = {loc.next_turn}')
-    print(f'puppy name = {loc.puppy_name}')
+    # This loop is used when the user teleports
     if loc.next_turn == True:
-        print('Loop worked')
+        loc.next_turn = False
+        coords = loc.coords
+        time.sleep(1)
         continue
 
     print('\nMove options:')
@@ -115,8 +117,6 @@ while user_input != 'EXIT':
     
     
     # Movement
-
     user_input = input('Move:').upper()
     coords = movement.movement(user_input,available_moves )
-    turn +=1
 '-----------------------------------------------------------------'
