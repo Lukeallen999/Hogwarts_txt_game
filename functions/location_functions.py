@@ -131,6 +131,8 @@ def Hagrids_hut():
         print('')
         choice_input = input('Do you investigate? (Y/N): ').upper()
         if choice_input == 'Y':
+            companions.append('Dog')
+            
             print_clean_txt('''
                             As you move closer, you see a small, furry creature
                             huddled beneath the debris, its whimpers growing
@@ -170,49 +172,69 @@ def The_restricted_section():
         
     user_input = input('Do you use the portkey? \nOdds: \nLeave Hogwarts: 10% \nDeath: 20% \nTeleport to another room in Hogwarts: 70% \n(Y/N): ').upper()
     if user_input == 'Y':
-           chance = random.randint(1,10)
-           chance = 4
-           if chance < 3:
-                  print("You're dead")
-                  exit()
-           if  2 < chance < 10:
-                  print('You teleported')
-                  movement.coords = movement.teleport(random.randint(0,4),random.randint(0,4))
-                  coords = movement.coords
-                  next_turn = True
-           if chance > 9:
-                  print('You escape')
-                  
-           
-    
-def The_Dungeons():
-        print("You are in: The Dungeons")
-        print("you see dead family")
+        chance = random.randint(1,10)
+        if chance < 3:
+            print("You're dead!")
+        if 2 < chance < 10:
+            print('You teleported')
+            movement.coords = movement.teleport(random.randint(0,4),
+                                                random.randint(0,4))
+            coords = movement.coords
+            next_turn = True
+        if chance > 9:
+            print('You escape')
 
-        if 'Health potion' in inventory:
-               inventory.remove("Health potion")
+def The_Dungeon():
+    print("You see your family dead")
 
-               user_input = input('do you bring back your brother(1) or dad(2)')
-               if user_input == 1:
-                      print('You bring back your brother')
-                      
-               if user_input == 2:
-                      print('You bring back your dad')
+    if 'Health potion' in inventory:
+        inventory.remove('Health potion')
+        user_input = input('do you bring back your brother(1) or dad(2)')
 
-
-
-
+        if user_input == 1:
+            print('You bring back your brother')
+        
+        if user_input == 2:
+            print('You bring back your dad')
 
 def The_room_of_requirements():
-        print("You are in: The room of requirements")
-        print('You find a key')
-        
-        inventory.append('Key')
+    print('You are in: The room of requirements')
+    print('You find a key')
+
+    inventory.append('Key')
 
 def Womping_Willow():
-        print("You are in: Womping Willow")
-        if puppy_name != False:
-               print(f'You have a puppy called {puppy_name}')
+    print('ou are in: Womping Willow')
+
+    if 'Dog' in companions:
+        print('The Womping willow lets you past')
+    
+    else:
+        user_input = input('Do you go left,right or straight at it').upper()
+        chance = random.randint(1,10)
+        if user_input == 'LEFT':
+            if chance <= 2:
+               print('You died') 
+               exit()
+        if user_input == 'RIGHT':
+            if chance <= 1:
+                print('You died')
+                exit()
+        if user_input == 'STRAIGHT':
+            if chance <= 3:
+                print('You died')
+                exit()
+        
+              
+
+
+
+               
+               
+        # random chance the tree kills you (Left: 20% death, Straight: 10% death, Right: 30% death
+
+
+
 def Common_room():
         print("You are in: Common room")
 def Library():
