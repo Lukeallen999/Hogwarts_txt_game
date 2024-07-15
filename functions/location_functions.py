@@ -21,6 +21,7 @@ next_turn = False
 turn = 1
 inventory = []
 companions = [] 
+health_potion_amount = 1
 
 ### Location functions
 location_dict = {
@@ -198,13 +199,11 @@ def The_Dungeon():
             print('You bring back your dad')
 
 def The_room_of_requirements():
-    print('You are in: The room of requirements')
     print('You find a key')
 
     inventory.append('Key')
 
 def Womping_Willow():
-    print('ou are in: Womping Willow')
 
     if 'Dog' in companions:
         print('The Womping willow lets you past')
@@ -228,16 +227,23 @@ def Womping_Willow():
         # random chance the tree kills you (Left: 20% death, Straight: 10% death, Right: 30% death
 
 def Common_room():
-    print("You are in: Common room")
     if 'Wand' not in inventory:
         print('You find a wand')
         inventory.append('Wand')
 
 def Library():
     print("You are in: Library")
-    
+
 def Potions_classroom():
-        print("You are in: Potions classroom")
+    global health_potion_amount
+
+    if health_potion_amount > 0:
+         print('You found a health potion') 
+         inventory.append('Health potion')
+         health_potion_amount -= 1
+         
+
+
 def Defence_against_the_dark_arts():
         print("You are in: Defence against the dark arts")
 def The_Court_yard():
