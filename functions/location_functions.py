@@ -224,21 +224,18 @@ def Womping_Willow():
             if chance <= 3:
                 print('You died')
                 exit()
-        
-              
-
-
-
-               
-               
+    
         # random chance the tree kills you (Left: 20% death, Straight: 10% death, Right: 30% death
 
-
-
 def Common_room():
-        print("You are in: Common room")
+    print("You are in: Common room")
+    if 'Wand' not in inventory:
+        print('You find a wand')
+        inventory.append('Wand')
+
 def Library():
-        print("You are in: Library")
+    print("You are in: Library")
+    
 def Potions_classroom():
         print("You are in: Potions classroom")
 def Defence_against_the_dark_arts():
