@@ -14,6 +14,7 @@ user_input = False
 coords = [0,2]
 #puppy_name = False
 turn = 1
+items = []
 #from functions.location_functions import puppy_name
 '''
 character_name = input('Please enter your name: ')

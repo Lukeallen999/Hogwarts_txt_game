@@ -19,6 +19,9 @@ coords = [2,0]
 puppy_name = False
 next_turn = False
 turn = 1
+inventory = []
+companions = [] 
+health_potion_amount = 1
 
 ### Location functions
 location_dict = {
@@ -129,6 +132,8 @@ def Hagrids_hut():
         print('')
         choice_input = input('Do you investigate? (Y/N): ').upper()
         if choice_input == 'Y':
+            companions.append('Dog')
+            
             print_clean_txt('''
                             As you move closer, you see a small, furry creature
                             huddled beneath the debris, its whimpers growing
@@ -150,8 +155,6 @@ def Hagrids_hut():
 
 
 def Dorm():
-    print("You are in: Dorm")
-
     print('You see your bed')
     choice_input = input('Do you check your old bed? (Y/N): ').upper()
     if choice_input == 'Y':
@@ -165,41 +168,82 @@ def Dorm():
 def The_restricted_section():
     global next_turn
     global coords
-    print("You are in: The restricted section")
 
     print('see portkey')
         
     user_input = input('Do you use the portkey? \nOdds: \nLeave Hogwarts: 10% \nDeath: 20% \nTeleport to another room in Hogwarts: 70% \n(Y/N): ').upper()
     if user_input == 'Y':
-           chance = random.randint(1,10)
-           chance = 4
-           if chance < 3:
-                  print("You're dead")
-                  exit()
-           if  2 < chance < 10:
-                  print('You teleported')
-                  movement.coords = movement.teleport(random.randint(0,4),random.randint(0,4))
-                  coords = movement.coords
-                  next_turn = True
-           if chance > 9:
-                  print('You escape')
-                  
-           
-    
-def The_Dungeons():
-        print("You are in: The Dungeons")
+        chance = random.randint(1,10)
+        if chance < 3:
+            print("You're dead!")
+        if 2 < chance < 10:
+            print('You teleported')
+            movement.coords = movement.teleport(random.randint(0,4),
+                                                random.randint(0,4))
+            coords = movement.coords
+            next_turn = True
+        if chance > 9:
+            print('You escape')
+
+def The_Dungeon():
+    print("You see your family dead")
+
+    if 'Health potion' in inventory:
+        inventory.remove('Health potion')
+        user_input = input('do you bring back your brother(1) or dad(2)')
+
+        if user_input == 1:
+            print('You bring back your brother')
+        
+        if user_input == 2:
+            print('You bring back your dad')
+
 def The_room_of_requirements():
-        print("You are in: The room of requirements")
+    print('You find a key')
+
+    inventory.append('Key')
+
 def Womping_Willow():
-        print("You are in: Womping Willow")
-        if puppy_name != False:
-               print(f'You have a puppy called {puppy_name}')
+
+    if 'Dog' in companions:
+        print('The Womping willow lets you past')
+    
+    else:
+        user_input = input('Do you go left,right or straight at it').upper()
+        chance = random.randint(1,10)
+        if user_input == 'LEFT':
+            if chance <= 2:
+               print('You died') 
+               exit()
+        if user_input == 'RIGHT':
+            if chance <= 1:
+                print('You died')
+                exit()
+        if user_input == 'STRAIGHT':
+            if chance <= 3:
+                print('You died')
+                exit()
+    
+        # random chance the tree kills you (Left: 20% death, Straight: 10% death, Right: 30% death
+
 def Common_room():
-        print("You are in: Common room")
+    if 'Wand' not in inventory:
+        print('You find a wand')
+        inventory.append('Wand')
+
 def Library():
-        print("You are in: Library")
+    print("You are in: Library")
+
 def Potions_classroom():
-        print("You are in: Potions classroom")
+    global health_potion_amount
+
+    if health_potion_amount > 0:
+         print('You found a health potion') 
+         inventory.append('Health potion')
+         health_potion_amount -= 1
+         
+
+
 def Defence_against_the_dark_arts():
         print("You are in: Defence against the dark arts")
 def The_Court_yard():
