@@ -31,10 +31,17 @@ troll = enemey(name = 'troll',
                } 
                )
           
+
 def fight(character_name,enemy_name):
     character_name = eval('character_name')
     enemy_name = eval('enemy_name')
-    (attack_type, attack_name, attack_damage, attack_chance) = character_name.attack[random.choice(list(user_character.attack.keys()))]
+
+    if character_name == user_character:
+        attack_choice = int(input('Please choose an attack from 1-3: '))
+        attack_type, attack_name, attack_damage, attack_chance = character_name.attack[attack_choice]
+
+    else:     
+        attack_type, attack_name, attack_damage, attack_chance = character_name.attack[random.choice(list(user_character.attack.keys()))]
     
     print(f'{character_name.name} uses: {attack_name} ({attack_type}) ')
     if random.randint(1,10) <= (attack_chance * 10):
@@ -54,7 +61,7 @@ for attack in user_character.attack.keys():
     print(f'Damage: {attack_damage}')
     print(f'Chance: {attack_chance*100}%\n')
 
-while troll.health > 0 or user_character.health > 0:
+while troll.health > 0 and user_character.health > 0:
     print(f'-------------------- Round:{fight_round} --------------------')
     fight(user_character,troll)
     fight(troll,user_character)
