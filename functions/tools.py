@@ -62,8 +62,7 @@ def attack_action(attacker: str, target: str) -> None:
 
     # Alows the user to choose what attack they want and to see attack options
     if attacker == character.user_character:       
-        if input('Do you want to see move options?(Y/N): ').upper() == 'Y':
-            attack_options()
+        
         attack_choice = int(input('Please choose an attack from 1-3: '))
         attack_type, attack_name, attack_damage, attack_chance = attacker.attack[attack_choice]
     else:     
@@ -86,13 +85,15 @@ def battle(character_name,enemy_name):
     '''
 
     fight_round = 1
+
+    if input('Do you want to see move options?(Y/N): ').upper() == 'Y':
+            attack_options()
     
     while character_name.health > 0 and enemy_name.health > 0:
         print(f'-------------------- Round:{fight_round} --------------------')
         
         attack_action(attacker = character_name, target = enemy_name)
         print('')
-        time.sleep(1)
 
         attack_action(attacker = enemy_name,target = character_name)
         print('')
@@ -105,9 +106,9 @@ def battle(character_name,enemy_name):
 
         if character_name.health <= 0:
             print('YOU LOSE')
-            exit()
+            #exit()
         
-        if enemy_name.health <= 0:
+        elif enemy_name.health <= 0:
             print('You Win')
         
         
@@ -115,4 +116,3 @@ def battle(character_name,enemy_name):
         print('')
         
 
-battle(character.user_character,character.troll)
